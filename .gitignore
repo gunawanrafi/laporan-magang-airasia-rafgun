@@ -1,0 +1,49 @@
+# ─── Dependencies ────────────────────────────────────────────────
+node_modules/
+
+# ─── Build output ────────────────────────────────────────────────
+# Vercel build sendiri dari source, jadi dist/ tidak perlu ikut.
+dist/
+dist-ssr/
+*.local
+
+# ─── Rahasia / environment ───────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ─── JANGAN PERNAH DI-PUSH ───────────────────────────────────────
+# PDF seminar asli: 229 MB (GitHub tolak >100 MB) dan BELUM diredaksi —
+# masih memuat IP publik, user root, dan nomor port.
+# Versi aman yang dipakai situs: public/seminar-ai-cli-automation.pdf
+docs/seminar/
+
+# ─── Artefak tooling sesi sebelumnya (tidak dipakai aplikasi) ─────
+.agents/
+COMPLETION_MANIFEST.json
+COMPTIA_MODULE1_SUMMARY.md
+DELIVERY_CHECKLIST.md
+FINAL_REPORT.txt
+MANIFEST.json
+README_COMPTIA.md
+comptia_network_images.json
+comptia-network-module1.json
+
+# ─── Editor / OS ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# ─── Log & cache ─────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vite/
+.cache/

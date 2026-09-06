@@ -1,0 +1,380 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="WN19401c-50x3shVOEms">
+    <mxGraphModel dx="1458" dy="881" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1700" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#12385A;fontFamily=Helvetica;" value="ICT Daily Report Automation Framework — System Architecture &amp; Daily Workflow" vertex="1">
+          <mxGeometry height="34" width="1440" x="60" y="16" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontColor=#6B7686;fontFamily=Helvetica;" value="Automated daily endpoint compliance reporting workflow — Scheduled at 09:00" vertex="1">
+          <mxGeometry height="22" width="1440" x="60" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="rule" parent="1" style="line;strokeWidth=1;html=1;strokeColor=#D8E0EA;" value="" vertex="1">
+          <mxGeometry height="10" width="1440" x="60" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#8A94A6;fontFamily=Helvetica;" value="PT Indonesia AirAsia  |  ICT Support &amp; Operation" vertex="1">
+          <mxGeometry height="22" width="1440" x="60" y="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="rounded=1;arcSize=3;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#AEBCCE;dashed=1;dashPattern=10 6;verticalAlign=top;align=center;spacingTop=4;fontSize=11;fontStyle=1;fontColor=#8A94A6;fontFamily=Helvetica;" value="AUTOMATED DAILY ICT REPORTING WORKFLOW" vertex="1">
+          <mxGeometry height="1348" width="1106" x="42" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="band1" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F6F8FB;strokeColor=#DCE3EC;verticalAlign=top;align=left;spacingLeft=14;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#98A2B3;fontFamily=Helvetica;" value="1 · SCHEDULING LAYER" vertex="1">
+          <mxGeometry height="115" width="1070" x="60" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="band2" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F6F8FB;strokeColor=#DCE3EC;verticalAlign=top;align=left;spacingLeft=14;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#98A2B3;fontFamily=Helvetica;" value="2 · ORCHESTRATION LAYER" vertex="1">
+          <mxGeometry height="120" width="1070" x="60" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="band3" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F6F8FB;strokeColor=#DCE3EC;verticalAlign=top;align=left;spacingLeft=14;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#98A2B3;fontFamily=Helvetica;" value="3 · DATA ACQUISITION LAYER" vertex="1">
+          <mxGeometry height="225" width="1070" x="60" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="band4" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F6F8FB;strokeColor=#DCE3EC;verticalAlign=top;align=left;spacingLeft=14;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#98A2B3;fontFamily=Helvetica;" value="4 · DATA PROCESSING &amp; AI ANALYSIS LAYER" vertex="1">
+          <mxGeometry height="250" width="1070" x="60" y="647" as="geometry" />
+        </mxCell>
+        <mxCell id="band5" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F6F8FB;strokeColor=#DCE3EC;verticalAlign=top;align=left;spacingLeft=14;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#98A2B3;fontFamily=Helvetica;" value="5 · REPORT GENERATION LAYER" vertex="1">
+          <mxGeometry height="230" width="1070" x="60" y="917" as="geometry" />
+        </mxCell>
+        <mxCell id="band6" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F6F8FB;strokeColor=#DCE3EC;verticalAlign=top;align=left;spacingLeft=14;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#98A2B3;fontFamily=Helvetica;" value="6 · DELIVERY &amp; STORAGE LAYER" vertex="1">
+          <mxGeometry height="300" width="1070" x="60" y="1167" as="geometry" />
+        </mxCell>
+        <object label="&lt;b&gt;Windows Task Scheduler&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot;&gt;Daily Schedule — 09:00 AM&lt;/font&gt;" tooltip="Triggers the daily ICT reporting workflow. Runs every day at 09:00 on the ICT operations workstation." link="https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page" id="n_sched">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FDF4E7;strokeColor=#D08700;strokeWidth=2;fontColor=#7A5200;fontSize=13;fontFamily=Helvetica;shadow=1;" vertex="1">
+            <mxGeometry height="75" width="280" x="455" y="140" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Python Automation Orchestrator&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot;&gt;run_daily.py&lt;/font&gt;" tooltip="Controls and coordinates the complete reporting workflow: browser automation, data extraction, AI analysis, report generation, delivery and upload." link="https://docs.python.org/3/" id="n_orch">
+          <mxCell parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;arcSize=6;fillColor=#E7F0FA;strokeColor=#1F4E79;strokeWidth=2;fontColor=#123A5C;fontSize=13;fontFamily=Helvetica;shadow=1;" vertex="1">
+            <mxGeometry height="80" width="310" x="440" y="290" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Playwright + Chromium&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Headless browser automation&lt;/font&gt;" tooltip="Automated browser access and dashboard data extraction. Playwright performs the login, navigation, screenshot capture and raw data extraction." link="https://playwright.dev/python/docs/intro" id="n_pw">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#EAF4EC;strokeColor=#2E7D46;strokeWidth=2;fontColor=#1E5730;fontSize=12;fontFamily=Helvetica;shadow=1;" vertex="1">
+            <mxGeometry height="75" width="260" x="430" y="432" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;ICT Monitoring Dashboard&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Endpoint compliance source system&lt;/font&gt;" tooltip="Internal ICT endpoint compliance monitoring dashboard. Accessed only through Playwright — never directly by the AI service." id="n_dash">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#EAF4EC;strokeColor=#2E7D46;strokeWidth=2;fontColor=#1E5730;fontSize=13;fontFamily=Helvetica;shadow=1;" vertex="1">
+            <mxGeometry height="75" width="250" x="800" y="432" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Dashboard Screenshot&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;.png — output/screenshots/&lt;/font&gt;" tooltip="Full dashboard screenshot captured by Playwright and embedded in the daily email." id="n_shot">
+          <mxCell parent="1" style="shape=note;size=16;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AA7B5;fontColor=#4A5567;fontSize=11;fontFamily=Helvetica;" vertex="1">
+            <mxGeometry height="65" width="200" x="140" y="437" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;JSON Dataset&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;output/json/*.json&lt;/font&gt;" tooltip="Raw extracted dashboard data written to disk as JSON by the extraction step." id="n_json">
+          <mxCell parent="1" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=11;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7F8FA4;fontColor=#40506A;fontSize=11;fontFamily=Helvetica;" vertex="1">
+            <mxGeometry height="62" width="260" x="430" y="540" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Structured JSON&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Normalized compliance metrics&lt;/font&gt;" tooltip="Normalized ICT endpoint compliance metrics — cleaned and validated before being sent to the AI service." id="n_sjson">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7F8FA4;fontColor=#40506A;fontSize=12;fontFamily=Helvetica;" vertex="1">
+            <mxGeometry height="72" width="230" x="170" y="690" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Google Gemini API&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;AI analysis service&lt;/font&gt;" tooltip="Analyzes the structured dashboard data and produces the report content. Gemini receives JSON only — it never accesses the dashboard directly." link="https://ai.google.dev/gemini-api/docs" id="n_gem">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#F2EAF9;strokeColor=#6B3FA0;strokeWidth=2;fontColor=#4B2A73;fontSize=13;fontFamily=Helvetica;shadow=1;" vertex="1">
+            <mxGeometry height="88" width="280" x="470" y="683" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;AI Analysis / Report Content&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Summary · KPI · Key findings&lt;/font&gt;" tooltip="Structured analysis output: executive summary, KPI summary and key findings used to build the report." id="n_ai">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FBF7FF;strokeColor=#A98BC9;fontColor=#4B2A73;fontSize=11;fontFamily=Helvetica;" vertex="1">
+            <mxGeometry height="72" width="230" x="830" y="690" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Prompt Configuration&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;prompt_extract.txt · prompt_report.txt&lt;/font&gt;" tooltip="Prompt templates that control extraction and report writing behaviour of the AI service." id="n_prompt">
+          <mxCell parent="1" style="shape=note;size=14;whiteSpace=wrap;html=1;fillColor=#FBF9F2;strokeColor=#B0A990;fontColor=#7A6F52;fontSize=10;fontFamily=Helvetica;" vertex="1">
+            <mxGeometry height="68" width="230" x="170" y="805" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Report Generator&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Converts analyzed data into structured reports&lt;/font&gt;" tooltip="Renders the AI analysis into Markdown, HTML and PDF deliverables." id="n_rgen">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#E6F1F8;strokeColor=#1B6CA8;strokeWidth=2;fontColor=#0F4C75;fontSize=13;fontFamily=Helvetica;shadow=1;" vertex="1">
+            <mxGeometry height="78" width="280" x="455" y="947" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;.html Report&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;output/html/&lt;/font&gt;" tooltip="HTML report — also used as the body of the daily email." id="n_html">
+          <mxCell parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7F8FA4;fontColor=#40506A;fontSize=11;fontFamily=Helvetica;verticalAlign=top;spacingTop=6;" vertex="1">
+            <mxGeometry height="70" width="210" x="140" y="1060" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Markdown Report&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;output/reports/&lt;/font&gt;" tooltip="Markdown source report, archived for documentation and version tracking." id="n_md">
+          <mxCell parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7F8FA4;fontColor=#40506A;fontSize=11;fontFamily=Helvetica;verticalAlign=top;spacingTop=6;" vertex="1">
+            <mxGeometry height="70" width="210" x="470" y="1060" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;.pdf Report&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;output/pdf/&lt;/font&gt;" tooltip="PDF report — attached to the daily email and archived on Google Drive." id="n_pdf">
+          <mxCell parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7F8FA4;fontColor=#40506A;fontSize=11;fontFamily=Helvetica;verticalAlign=top;spacingTop=6;" vertex="1">
+            <mxGeometry height="70" width="210" x="840" y="1060" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Email Report Generator&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Builds formatted HTML email&lt;/font&gt;" tooltip="Creates a formatted HTML email containing the dashboard overview, executive summary and the PDF attachment." id="n_emailgen">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FDF3F2;strokeColor=#C0715F;fontColor=#8E3F2B;fontSize=12;fontFamily=Helvetica;" vertex="1">
+            <mxGeometry height="75" width="250" x="170" y="1210" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Gmail — Email Delivery&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;ICT Support &amp;amp; Operation recipients&lt;/font&gt;" tooltip="Delivers the ICT Daily Endpoint Compliance Report to the distribution list every morning." link="https://developers.google.com/gmail/api/guides" id="n_gmail">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#C0392B;strokeWidth=2;fontColor=#8E2F24;fontSize=13;fontFamily=Helvetica;shadow=1;" vertex="1">
+            <mxGeometry height="75" width="250" x="170" y="1345" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Google Drive&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Central storage and archive&lt;/font&gt;" tooltip="Central storage and archive for daily reports (Markdown, HTML and PDF)." link="https://developers.google.com/drive/api/guides/about-sdk" id="n_drive">
+          <mxCell parent="1" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=14;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#1A73E8;strokeWidth=2;fontColor=#0B4A9E;fontSize=13;fontFamily=Helvetica;shadow=1;" vertex="1">
+            <mxGeometry height="85" width="250" x="830" y="1210" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="n_note" parent="1" style="shape=note;size=16;whiteSpace=wrap;html=1;fillColor=#FFFBF8;strokeColor=#C0715F;fontColor=#7A4436;fontSize=10;fontFamily=Helvetica;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" value="&lt;b&gt;Email Contents&lt;/b&gt;&lt;br&gt;• ICT Daily Endpoint Compliance Report&lt;br&gt;• Dashboard Screenshot (inline)&lt;br&gt;• Executive Summary&lt;br&gt;• KPI Summary&lt;br&gt;• Key Findings&lt;br&gt;• PDF Attachment" vertex="1">
+          <mxGeometry height="125" width="310" x="470" y="1330" as="geometry" />
+        </mxCell>
+        <mxCell id="n_final" parent="1" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#1F4E79;strokeColor=#123A5C;fontColor=#FFFFFF;fontSize=13;fontFamily=Helvetica;shadow=1;" value="&lt;b&gt;Daily ICT Report Available&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Delivered &amp;amp; archived — every day 09:00&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="310" x="440" y="1495" as="geometry" />
+        </mxCell>
+        <mxCell id="n_config" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FCFAF3;strokeColor=#B0A990;dashed=1;dashPattern=6 4;fontColor=#7A6F52;fontSize=11;fontFamily=Helvetica;align=left;verticalAlign=top;spacingLeft=14;spacingTop=10;" value="&lt;b&gt;Configuration &amp;amp; Credentials&lt;/b&gt;&lt;br&gt;&lt;br&gt;config/&lt;br&gt;├── gemini_api.env&lt;br&gt;├── prompt_extract.txt&lt;br&gt;├── prompt_report.txt&lt;br&gt;├── email_config.json&lt;br&gt;└── google_credentials / token&lt;br&gt;&lt;br&gt;&lt;i&gt;No secrets are exposed in this diagram&lt;/i&gt;" vertex="1">
+          <mxGeometry height="240" width="330" x="1170" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="n_output" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F7F9FB;strokeColor=#9AA7B5;fontColor=#4A5567;fontSize=11;fontFamily=Helvetica;align=left;verticalAlign=top;spacingLeft=14;spacingTop=10;" value="&lt;b&gt;Output Storage&lt;/b&gt;&lt;br&gt;&lt;br&gt;output/&lt;br&gt;├── json/&lt;br&gt;├── screenshots/&lt;br&gt;├── reports/&lt;br&gt;├── html/&lt;br&gt;└── pdf/" vertex="1">
+          <mxGeometry height="250" width="330" x="1170" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="n_legend" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DCE3EC;fontFamily=Helvetica;" value="" vertex="1">
+          <mxGeometry height="225" width="330" x="1170" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="lgtitle" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#12385A;fontFamily=Helvetica;" value="Legend" vertex="1">
+          <mxGeometry height="22" width="200" x="1188" y="1022" as="geometry" />
+        </mxCell>
+        <mxCell id="lg1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F4E79;strokeWidth=2.5;endArrow=blockThin;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="1062" as="sourcePoint" />
+            <mxPoint x="1250" y="1062" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg1t" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A5567;fontFamily=Helvetica;" value="Primary Workflow / Control Flow" vertex="1">
+          <mxGeometry height="20" width="230" x="1260" y="1052" as="geometry" />
+        </mxCell>
+        <mxCell id="lg2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="1096" as="sourcePoint" />
+            <mxPoint x="1250" y="1096" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg2t" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A5567;fontFamily=Helvetica;" value="Data Flow" vertex="1">
+          <mxGeometry height="20" width="230" x="1260" y="1086" as="geometry" />
+        </mxCell>
+        <mxCell id="lg3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;dashPattern=6 4;strokeColor=#9A8F70;strokeWidth=1.5;endArrow=open;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="1130" as="sourcePoint" />
+            <mxPoint x="1250" y="1130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg3t" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A5567;fontFamily=Helvetica;" value="Configuration / Dependency" vertex="1">
+          <mxGeometry height="20" width="230" x="1260" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="lg4" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2E7D46;strokeWidth=2.5;endArrow=block;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="1164" as="sourcePoint" />
+            <mxPoint x="1250" y="1164" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg4t" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A5567;fontFamily=Helvetica;" value="Delivery / Archive" vertex="1">
+          <mxGeometry height="20" width="230" x="1260" y="1154" as="geometry" />
+        </mxCell>
+        <mxCell id="lg5" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;dashPattern=4 4;strokeColor=#8A94A6;strokeWidth=1.5;endArrow=open;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="1198" as="sourcePoint" />
+            <mxPoint x="1250" y="1198" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg5t" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A5567;fontFamily=Helvetica;" value="Storage Write" vertex="1">
+          <mxGeometry height="20" width="230" x="1260" y="1188" as="geometry" />
+        </mxCell>
+        <mxCell id="lg6t" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#1F4E79;fontFamily=Helvetica;" value="01 – 10   Workflow step sequence" vertex="1">
+          <mxGeometry height="20" width="290" x="1190" y="1208" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="n_sched" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1F4E79;strokeWidth=2.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#1F4E79;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="n_orch" value="09:00 Daily Trigger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="n_orch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1F4E79;strokeWidth=2.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#1F4E79;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="n_pw" value="Start Workflow">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="n_pw" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.28;entryX=0;entryY=0.28;" target="n_dash" value="Login / Access">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="n_dash" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.78;entryX=1;entryY=0.78;" target="n_pw" value="Dashboard Data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="n_pw" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.45;entryX=1;entryY=0.5;" target="n_shot" value="Capture">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="n_pw" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1F4E79;strokeWidth=2.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#1F4E79;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="n_json" value="Extract Data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="n_json" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1F4E79;strokeWidth=2.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#1F4E79;labelBackgroundColor=#FFFFFF;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" target="n_sjson" value="Normalize">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="495" y="637" />
+              <mxPoint x="285" y="637" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="n_sjson" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1F4E79;strokeWidth=2.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#1F4E79;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="n_gem" value="Dashboard Metrics">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="n_prompt" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;dashPattern=6 4;strokeColor=#9A8F70;strokeWidth=1.5;endArrow=open;fontSize=10;fontColor=#8A7F60;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0.32;entryY=1;" target="n_gem" value="Prompts">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="839" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="n_gem" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="n_ai" value="AI Output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="n_ai" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1F4E79;strokeWidth=2.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#1F4E79;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.73;entryY=0;" target="n_rgen" value="Analysis Result">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="945" y="907" />
+              <mxPoint x="659" y="907" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="n_rgen" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" target="n_html" value="HTML">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="1042" />
+              <mxPoint x="245" y="1042" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="n_rgen" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="n_md" value="Markdown">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="n_rgen" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" target="n_pdf" value="PDF">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="665" y="1042" />
+              <mxPoint x="945" y="1042" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="n_html" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=0.35;exitY=1;entryX=0.17;entryY=0;" target="n_emailgen" value="HTML Report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="n_shot" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5B7291;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=10;fontColor=#5B7291;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0;entryY=0.47;" target="n_emailgen" value="Dashboard Screenshot">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="112" y="470" />
+              <mxPoint x="112" y="1245" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="n_emailgen" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D46;strokeWidth=2.5;endArrow=block;endFill=1;fontSize=10;fontColor=#2E7D46;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="n_gmail" value="Daily Report Delivery">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="n_md" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D46;strokeWidth=2.5;endArrow=block;endFill=1;fontSize=10;fontColor=#2E7D46;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0;entryY=0.29;" target="n_drive" value="Report Archive">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="575" y="1150" />
+              <mxPoint x="815" y="1150" />
+              <mxPoint x="815" y="1235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="n_html" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D46;strokeWidth=2.5;endArrow=block;endFill=1;fontSize=10;fontColor=#2E7D46;labelBackgroundColor=#FFFFFF;exitX=0.83;exitY=1;entryX=0;entryY=0.62;" target="n_drive" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="314" y="1197" />
+              <mxPoint x="790" y="1197" />
+              <mxPoint x="790" y="1263" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="n_pdf" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D46;strokeWidth=2.5;endArrow=block;endFill=1;fontSize=10;fontColor=#2E7D46;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.46;entryY=0;" target="n_drive" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="n_gmail" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;dashPattern=6 4;strokeColor=#C0715F;strokeWidth=1.5;endArrow=open;fontSize=10;fontColor=#8E3F2B;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="n_note" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="n_gmail" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D46;strokeWidth=2.5;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.19;entryY=0;" target="n_final" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="295" y="1478" />
+              <mxPoint x="499" y="1478" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="n_drive" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D46;strokeWidth=2.5;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.81;entryY=0;" target="n_final" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="955" y="1478" />
+              <mxPoint x="691" y="1478" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="n_config" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;dashPattern=6 4;strokeColor=#9A8F70;strokeWidth=1.5;endArrow=open;fontSize=10;fontColor=#8A7F60;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.2;entryX=1;entryY=0.4;" target="n_orch" value="Load config">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1152" y="450" />
+              <mxPoint x="1152" y="322" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="n_config" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;dashPattern=6 4;strokeColor=#9A8F70;strokeWidth=1.5;endArrow=open;fontSize=10;fontColor=#8A7F60;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.85;entryX=0.75;entryY=1;" target="n_gem" value="API credentials">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1162" y="606" />
+              <mxPoint x="1162" y="845" />
+              <mxPoint x="680" y="845" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="n_json" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;dashPattern=4 4;strokeColor=#8A94A6;strokeWidth=1.5;endArrow=open;fontSize=9;fontColor=#8A94A6;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.24;" target="n_output" value="writes json / screenshots">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1138" y="571" />
+              <mxPoint x="1138" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e27" edge="1" parent="1" source="n_rgen" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;dashPattern=4 4;strokeColor=#8A94A6;strokeWidth=1.5;endArrow=open;fontSize=9;fontColor=#8A94A6;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.6;entryX=0;entryY=0.96;" target="n_output" value="writes reports">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1152" y="994" />
+              <mxPoint x="1152" y="940" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#D08700;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="01" vertex="1">
+          <mxGeometry height="32" width="32" x="440" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="b02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1F4E79;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="02" vertex="1">
+          <mxGeometry height="32" width="32" x="425" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="b03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1F4E79;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="03" vertex="1">
+          <mxGeometry height="32" width="32" x="415" y="417" as="geometry" />
+        </mxCell>
+        <mxCell id="b04" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1F4E79;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="04" vertex="1">
+          <mxGeometry height="32" width="32" x="785" y="417" as="geometry" />
+        </mxCell>
+        <mxCell id="b05" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1F4E79;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="05" vertex="1">
+          <mxGeometry height="32" width="32" x="415" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="b06" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#6B3FA0;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="06" vertex="1">
+          <mxGeometry height="32" width="32" x="455" y="668" as="geometry" />
+        </mxCell>
+        <mxCell id="b07" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1B6CA8;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="07" vertex="1">
+          <mxGeometry height="32" width="32" x="440" y="932" as="geometry" />
+        </mxCell>
+        <mxCell id="b08" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1F4E79;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="08" vertex="1">
+          <mxGeometry height="32" width="32" x="455" y="1045" as="geometry" />
+        </mxCell>
+        <mxCell id="b09a" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#C0392B;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="09" vertex="1">
+          <mxGeometry height="32" width="32" x="155" y="1330" as="geometry" />
+        </mxCell>
+        <mxCell id="b09b" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A73E8;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="09" vertex="1">
+          <mxGeometry height="32" width="32" x="815" y="1195" as="geometry" />
+        </mxCell>
+        <mxCell id="b10" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#123A5C;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;fontStyle=1;fontFamily=Helvetica;" value="10" vertex="1">
+          <mxGeometry height="32" width="32" x="425" y="1480" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
