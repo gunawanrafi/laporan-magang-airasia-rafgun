@@ -35,7 +35,7 @@ export const owner = {
   name: "Rafi",
   fullName: "Muhammad Rafi Gunawan",
   role: "Network Engineering Intern",
-  photo: asset("rafi-portrait.jpg"),
+  photo: asset("fotoairasia.jpeg"),
   // Optional: put a real PDF in public/ and set e.g. './resume.pdf'.
   // Leave null and the button falls back to the browser print dialog.
   resumeUrl: null,
@@ -107,6 +107,251 @@ export const home = {
 /* ---------------------------------------------------------------- */
 
 export const projects = [
+  {
+    slug: "ai-automation-training-n8n",
+    title: "AI & Automation Training — Automatic Minutes with n8n",
+    shortTitle: "AI & Automation Training",
+    summary:
+      "Designed and delivered a full-day AI & Automation training for the ICT team: AI/ML/LLM fundamentals, the trigger-process-output pattern behind workflow automation, and a live n8n case study that turns raw meeting transcripts into structured, routed minutes using the Gemini API.",
+    description:
+      "A full-day knowledge-sharing session built from scratch and delivered to the ICT Support & Operation team. The day ran in three parts: an AI fundamentals block (how LLMs work, tokens and context windows, training versus inference, hallucination and non-determinism, prompt engineering, deployment tiers and data classification); an automation block covering the trigger-process-output pattern, data transformation, control flow, binary handling and error handling in n8n; and a hands-on case study where a thirteen-node n8n workflow reads transcripts from a local folder, has Gemini write the minutes as strict JSON, validates the output, and files each result by urgency into one of three folders.",
+    period: "September 2026",
+    status: "Completed",
+    tags: [
+      "AI Fundamentals",
+      "n8n",
+      "Workflow Automation",
+      "Prompt Engineering",
+      "Google Gemini",
+      "AI Safety",
+      "Knowledge Sharing",
+    ],
+
+    metrics: [
+      { value: "43", label: "Slides presented", icon: "gallery" },
+      { value: "3", label: "Sessions across one day", icon: "clock" },
+      { value: "13", label: "n8n nodes in the workflow", icon: "workflow" },
+      { value: "7", label: "Node types used", icon: "layers" },
+    ],
+
+    gallery: {
+      image: asset("rafipresentasi.jpeg"),
+      alt: "Presenting the AI & Automation training to the ICT team at AirAsia Indonesia",
+      caption: "Delivering the session to the ICT team",
+      items: [
+        {
+          src: asset("rafipresentasi.jpeg"),
+          alt: "Presenting the AI & Automation training in front of the ICT team",
+          label: "Presenting",
+          caption:
+            "Walking the team through the AI fundamentals block — how an LLM predicts the next token, and why that makes data classification and strict prompts matter.",
+        },
+        {
+          src: asset("fotobareng1.jpeg"),
+          alt: "Group photo of the ICT team after the AI & Automation training",
+          label: "The team",
+          fit: "contain",
+          caption:
+            "The ICT Support & Operation team after the session — the audience the workflow was built for.",
+        },
+        {
+          src: asset("fotobareng2.jpeg"),
+          alt: "Second group photo with the training participants",
+          label: "Group photo",
+          fit: "contain",
+          caption:
+            "A second group shot at the end of the day, after the live n8n workflow demo.",
+        },
+      ],
+    },
+
+    impact: {
+      body: "Turned a topic the team was curious but cautious about into a working pattern they can reuse. The day ended with a running n8n workflow — and, more importantly, a shared understanding of which AI to use for which data, and what controls make it acceptable: credentials out of prompts, an agent that never holds a secret, and every output validated before it is trusted.",
+      chip: "Pattern shared with the ICT team",
+    },
+
+    architecture: {
+      body: "Thirteen n8n nodes chained into one workflow. A schedule trigger polls the input folder, new transcripts are read and de-duplicated, each one is extracted to text and looped through a strict LLM chain backed by Gemini, the response is parsed and validated, converted back to a file, routed by urgency into one of three folders, then the loop advances to the next transcript.",
+      flow: [
+        { label: "Schedule Trigger (1 min)", icon: "clock" },
+        { label: "Read + de-duplicate transcripts", icon: "server" },
+        { label: "Extract binary to text", icon: "note" },
+        { label: "LLM Chain + Gemini", icon: "sparkles", highlight: true },
+        { label: "Parse + validate JSON", icon: "code" },
+        { label: "Switch by urgency", icon: "route" },
+        { label: "Write Markdown minutes", icon: "layers" },
+      ],
+      diagram: {
+        title: "Workflow Architecture — Thirteen Nodes, One Path",
+        caption:
+          "The full n8n workflow. Each node does one job and passes JSON to the next; the three write nodes loop back so every transcript in the batch is processed.",
+        definition: `flowchart LR
+    SCHED["<b>Schedule Trigger</b><br/>every 1 minute"]
+    READ["<b>Read Files From Disk</b><br/>*.txt &middot; binary"]
+    DEDUP["<b>Code (JS)</b><br/>skip already-processed"]
+    EXTRACT["<b>Extract from File</b><br/>binary to text"]
+    LOOP["<b>Loop Over Items</b><br/>batch size 1"]
+    LLM["<b>Basic LLM Chain</b><br/>strict JSON prompt"]
+    GEM["<b>Google Gemini</b><br/>gemini-2.5-flash"]
+    PARSE["<b>Parse (JS)</b><br/>try-catch &middot; validate"]
+    CONV["<b>Convert to File</b><br/>text to .md binary"]
+    SW{"<b>Switch</b><br/>by urgency"}
+    U["<b>Write File</b><br/>hasil-urgent/"]
+    B["<b>Write File</b><br/>hasil-biasa/"]
+    C["<b>Write File</b><br/>hasil-perlu-cek/"]
+
+    SCHED --> READ --> DEDUP --> EXTRACT --> LOOP --> LLM --> GEM --> PARSE --> CONV --> SW
+    SW -->|"urgen"| U
+    SW -->|"biasa"| B
+    SW -->|"perlu-cek"| C
+    U -->|"next item"| LOOP
+    B -->|"next item"| LOOP
+    C -->|"next item"| LOOP
+
+    classDef trig fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
+    classDef io fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
+    classDef ai fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f
+    classDef logic fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef out fill:#ffe4e6,stroke:#e11d48,stroke-width:2px,color:#881337
+
+    class SCHED trig
+    class READ,EXTRACT,CONV io
+    class LLM,GEM,PARSE ai
+    class DEDUP,LOOP,SW logic
+    class U,B,C out`,
+      },
+      alt: "Diagram of the n8n workflow: schedule trigger, read files, de-duplicate, extract, loop, LLM chain with Gemini, parse, convert to file, switch by urgency, then three write-file outputs looping back",
+    },
+
+    sequence: {
+      title: "One Transcript, Start to Finish",
+      caption:
+        "What happens between a transcript landing in the folder and its minutes being filed. The loop repeats this sequence for every new file.",
+      definition: `sequenceDiagram
+    autonumber
+    participant SCH as Schedule Trigger
+    participant RD as Read Files
+    participant CD as Dedupe
+    participant EX as Extract from File
+    participant LP as Loop Over Items
+    participant LLM as LLM Chain
+    participant GEM as Gemini API
+    participant PS as Parse
+    participant SW as Switch
+    participant WR as Write File
+
+    SCH->>RD: Folder check every 1 minute
+    RD-->>CD: .txt files as binary
+    CD->>EX: Only files not seen before
+    EX->>LP: Transcript text
+    LP->>LLM: One transcript at a time
+    LLM->>GEM: Strict prompt plus transcript
+    GEM-->>LLM: JSON minutes
+    LLM->>PS: Raw JSON string
+    PS->>PS: Parse, validate, format Markdown
+    PS->>SW: Structured minutes
+    SW->>WR: Route by urgency
+    WR->>LP: Return for the next file`,
+    },
+
+    stack: {
+      title: "The Stack, and Why Each Piece Is There",
+      body: "Every component was chosen so the workflow runs unattended on a Windows workstation with no paid orchestration platform.",
+      columns: ["Layer", "Technology", "Role in the workflow"],
+      rows: [
+        ["Trigger", "n8n Schedule Trigger", "Polls the input folder every minute — a local folder cannot push an event."],
+        ["Automation", "n8n (self-hosted)", "Orchestrates all thirteen nodes; JavaScript where real logic is needed."],
+        ["AI", "Google Gemini API", "gemini-2.5-flash turns each transcript into structured JSON — Tier 3, inference-only."],
+        ["Input", "Windows filesystem", "Reads .txt transcripts with binary mode and a restricted folder allow-list."],
+        ["Validation", "JavaScript (Parse node)", "Strips code fences, parses JSON in try-catch, forces an unknown urgency to perlu-cek."],
+        ["Output", "Windows filesystem", "Writes Markdown minutes into hasil-urgent, hasil-biasa or hasil-perlu-cek."],
+      ],
+    },
+
+    artifacts: {
+      title: "Where the Minutes Land",
+      body: "One run produces one Markdown file per transcript, filed by the urgency the model assigned and re-checked by the validation node.",
+      items: [
+        { name: "hasil-urgent/", desc: "Minutes flagged urgent — the folder the team checks first.", icon: "trending" },
+        { name: "hasil-biasa/", desc: "Routine minutes, stored for the normal record.", icon: "note" },
+        { name: "hasil-perlu-cek/", desc: "Anything the model could not classify with confidence, or that failed to parse — held for human review.", icon: "check" },
+        { name: "Input-notulen/", desc: "The watched folder. Drop a .txt transcript here and the trigger picks it up within a minute.", icon: "server" },
+        { name: "N8N env config", desc: "Binary data mode and folder access are restricted through environment variables.", icon: "terminal" },
+        { name: "Markdown output", desc: "Minutes are written as .md — readable by people and clean to diff between meetings.", icon: "code" },
+      ],
+    },
+
+    steps: [
+      {
+        title: "AI Fundamentals",
+        body: "Opened with the concepts the rest of the day depends on: AI, ML, DL and LLMs, how a model predicts the next token, tokens and context windows, training versus inference, why models are stateless, hallucination and non-determinism, the six components of a good prompt, deployment tiers and data classification.",
+        tags: ["LLM", "Prompt Engineering", "Data Classification"],
+      },
+      {
+        title: "Automation Fundamentals",
+        body: "Moved from theory to the mechanics of automation: the trigger-process-output pattern, event versus schedule triggers, input and permission challenges, data transformation, control flow, binary data handling, integrating an LLM into a workflow, and the error-handling patterns that keep a run from dying halfway.",
+        tags: ["n8n", "Control Flow", "Error Handling"],
+      },
+      {
+        title: "Live Case Study",
+        body: "Built and demonstrated the automatic-minutes workflow node by node — from the schedule trigger and duplicate filter, through the Gemini LLM chain and the parse safety net, to the switch that files each result by urgency. The team watched a transcript become structured minutes in under a minute.",
+        tags: ["n8n", "Gemini API", "Live Demo"],
+      },
+    ],
+
+    deck: {
+      title: "The Deck",
+      body: "All forty-three slides as presented, across the three sessions. Use the arrows or the filmstrip to move through them; click a slide to open it full size.",
+      downloadUrl: `${import.meta.env.BASE_URL}ai-automation-training.pdf`,
+      downloadLabel: "Download the deck (PDF)",
+      slides: [
+        { src: asset("ai-automation-training/slide-01.jpg"), title: "Title", note: "AI & Automation Training — a hands-on session on automatic meeting minutes with n8n and AI, presented with Ammara Dalia Irna Putri to the ICT team." },
+        { src: asset("ai-automation-training/slide-02.jpg"), title: "Fundamental AI", note: "Part one: what AI, ML, DL and LLMs actually are, and how a language model produces an answer. 10:00 – 11:15." },
+        { src: asset("ai-automation-training/slide-03.jpg"), title: "AI / ML / DL / LLM", note: "AI is the umbrella, machine learning learns from data, deep learning adds complex neural networks, and the LLM is the layer this training uses." },
+        { src: asset("ai-automation-training/slide-04.jpg"), title: "How an LLM Works", note: "A language model is a next-word prediction machine: the prompt is tokenised, and each following word is predicted from everything before it." },
+        { src: asset("ai-automation-training/slide-05.jpg"), title: "Token & Context Window", note: "A token is the smallest unit a model processes; the context window is the maximum it can hold at once — 128K tokens for Gemini 1.5 Flash." },
+        { src: asset("ai-automation-training/slide-06.jpg"), title: "Training vs Inference", note: "Training is where the model learns and can cost millions; inference is where it answers and costs per token. The API is inference-only." },
+        { src: asset("ai-automation-training/slide-07.jpg"), title: "Stateless Models", note: "The model remembers nothing between calls — the application resends the whole history, so each meeting file is a brand-new conversation." },
+        { src: asset("ai-automation-training/slide-08.jpg"), title: "Hallucination & Confident-Wrong", note: "A model can answer confidently and wrongly because it predicts plausible words, not verified facts — hence the strict prompt rules and parse safety net." },
+        { src: asset("ai-automation-training/slide-09.jpg"), title: "Non-Determinism", note: "The same prompt can produce different outputs; the parse node validates the result so an unexpected answer is caught rather than trusted." },
+        { src: asset("ai-automation-training/slide-10.jpg"), title: "Prompt Engineering Basics", note: "Six components make a good prompt: role, task, format, rules, data and an output marker — all six appear in the case-study prompt." },
+        { src: asset("ai-automation-training/slide-11.jpg"), title: "Deployment Tiers", note: "Six tiers from consumer apps to self-hosted models. The Gemini API sits at Tier 3: inference-only, data not used for training." },
+        { src: asset("ai-automation-training/slide-12.jpg"), title: "Data Classification", note: "Meeting minutes are Internal data, which needs Tier 2 or above — the Gemini API at Tier 3 is the right fit." },
+        { src: asset("ai-automation-training/slide-13.jpg"), title: "AI Agents", note: "An agent can act, not just talk. The 'lethal trifecta' is private data, untrusted content and outbound communication at once — this workflow is a simple chain, not an agent." },
+        { src: asset("ai-automation-training/slide-14.jpg"), title: "Fundamental Automation", note: "Part two: the trigger → process → output pattern and an n8n deep dive. 11:15 – 12:00." },
+        { src: asset("ai-automation-training/slide-15.jpg"), title: "What is Workflow Automation?", note: "The manual routine took about five minutes per file; automating it takes about ten seconds and is consistent, scalable and auditable." },
+        { src: asset("ai-automation-training/slide-16.jpg"), title: "The Core Pattern", note: "Every automation follows trigger → process → output: something starts it, something transforms the data, and something saves or sends the result." },
+        { src: asset("ai-automation-training/slide-17.jpg"), title: "Trigger: Event vs Schedule", note: "Event triggers fire instantly; schedule triggers poll. A local Windows folder has no event, so the workflow polls every minute." },
+        { src: asset("ai-automation-training/slide-18.jpg"), title: "Input / Data Source", note: "Getting data in is the hard part: format differences, filesystem permissions, and the fact that an LLM cannot read binary directly." },
+        { src: asset("ai-automation-training/slide-19.jpg"), title: "Data Transformation", note: "Each arrow is one n8n node: text is extracted, sent to the LLM, parsed into structured JSON, converted to a file, then written to disk." },
+        { src: asset("ai-automation-training/slide-20.jpg"), title: "Control Flow", note: "Conditional routing, looping one item at a time, try-catch error handling and a fallback route — the four control patterns the workflow uses." },
+        { src: asset("ai-automation-training/slide-21.jpg"), title: "AI Inside the Automation", note: "The LLM chain is the bridge: the previous node's text is placed into the prompt, sent to Gemini, and the response returns to the workflow." },
+        { src: asset("ai-automation-training/slide-22.jpg"), title: "Output / Persistence", note: "Results can go to a file system, a database or a notification. This case study writes Markdown into three folders by urgency." },
+        { src: asset("ai-automation-training/slide-23.jpg"), title: "What is n8n?", note: "A workflow automation tool that is self-hostable, code-first, open source and connects to over a hundred integrations." },
+        { src: asset("ai-automation-training/slide-24.jpg"), title: "Node Types in n8n", note: "Seven node categories are used: trigger, action, transform, logic, AI/ML, plus the integration types available." },
+        { src: asset("ai-automation-training/slide-25.jpg"), title: "Data Flow in n8n", note: "The full path: schedule → read → dedupe → extract → loop → LLM → parse → convert → switch → write, with expressions pulling fields from earlier nodes." },
+        { src: asset("ai-automation-training/slide-26.jpg"), title: "Binary Data Handling", note: "Binary is read, converted to text for the LLM, converted back to a file, then written — with binary mode and folder restrictions configured on the server." },
+        { src: asset("ai-automation-training/slide-27.jpg"), title: "Error Handling Patterns", note: "Try-catch around the parse, output validation, duplicate detection via static data, and a switch fallback so the workflow never dies mid-run." },
+        { src: asset("ai-automation-training/slide-28.jpg"), title: "Recap: AI + Automation", note: "The session recap: tokens, context, training vs inference, prompting, tiers, data classes and agents, plus the automation fundamentals." },
+        { src: asset("ai-automation-training/slide-29.jpg"), title: "Case Study", note: "Part three: an n8n automation that turns transcripts in a local folder into structured minutes with AI. 13:00 – 15:00." },
+        { src: asset("ai-automation-training/slide-30.jpg"), title: "Node 1 — Schedule Trigger", note: "Checks the input folder every minute, because a local folder cannot notify the workflow when a file arrives." },
+        { src: asset("ai-automation-training/slide-31.jpg"), title: "Node 2 — Read Files From Disk", note: "Reads every .txt transcript from the input folder as binary data, with binary mode and folder access configured." },
+        { src: asset("ai-automation-training/slide-32.jpg"), title: "Node 3 — Code (JS)", note: "Filters out files already processed using workflow static data, so nothing is summarised twice." },
+        { src: asset("ai-automation-training/slide-33.jpg"), title: "Node 4 — Extract from File", note: "Turns the binary transcript into text, because the language model cannot read a binary file directly." },
+        { src: asset("ai-automation-training/slide-34.jpg"), title: "Node 5 — Loop Over Items", note: "Processes one file at a time to avoid mixing files, respect API rate limits, and make any error traceable to a single file." },
+        { src: asset("ai-automation-training/slide-35.jpg"), title: "Node 6 — Basic LLM Chain", note: "The heart of the workflow: sends the transcript with a strict prompt that asks for JSON only." },
+        { src: asset("ai-automation-training/slide-36.jpg"), title: "Node 7 — Google Gemini Chat Model", note: "The model that answers: gemini-2.5-flash through a Gemini API key — Tier 3, inference-only, data not used for training." },
+        { src: asset("ai-automation-training/slide-37.jpg"), title: "Node 8 — Parse (JavaScript)", note: "The safety net: strips code fences, parses the JSON in a try-catch, and forces an unknown urgency to perlu-cek." },
+        { src: asset("ai-automation-training/slide-38.jpg"), title: "Node 9 — Convert to File", note: "Converts the Markdown text back into a binary file, because the write node expects binary data." },
+        { src: asset("ai-automation-training/slide-39.jpg"), title: "Node 10 — Switch", note: "Routes the file by urgency into one of three outputs, with a fallback for anything unexpected." },
+        { src: asset("ai-automation-training/slide-40.jpg"), title: "Nodes 11–13 — Write File to Disk", note: "Three write nodes save the Markdown into hasil-urgent, hasil-biasa or hasil-perlu-cek, then connect back to the loop." },
+        { src: asset("ai-automation-training/slide-41.jpg"), title: "Full Workflow Demo", note: "Drop three transcripts in the input folder, wait for the trigger, follow the data from node to node, and find the results in the three output folders." },
+        { src: asset("ai-automation-training/slide-42.jpg"), title: "Q&A", note: "Long transcripts, sensitive data, local models and email delivery — the questions raised at the end of the session." },
+        { src: asset("ai-automation-training/slide-43.jpg"), title: "Thank You", note: "Don't be afraid to use AI — just use it correctly: which AI, for what data, with what controls. Happy automating!" },
+      ],
+    },
+  },
+
   {
     slug: "device-monitoring-report-automation",
     title: "Automated Device Monitoring Report",
@@ -4829,7 +5074,7 @@ export const documentation = {
       tagStyle: "primary",
       title: "Network Engineering Intern",
       caption: "AirAsia Indonesia, Tangerang — July to September 2026.",
-      image: asset("rafi-portrait.jpg"),
+      image: asset("fotoairasia.jpeg"),
       alt: "Portrait of Muhammad Rafi Gunawan",
     },
     {

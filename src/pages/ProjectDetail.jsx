@@ -96,7 +96,9 @@ export default function ProjectDetail() {
                       src={shot.src}
                       alt={shot.alt}
                       loading="lazy"
-                      className="size-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                      className={`size-full transition-transform duration-700 group-hover:scale-[1.03] ${
+                        shot.fit === 'contain' ? 'object-contain' : 'object-cover object-top'
+                      }`}
                     />
                     {shot.label && (
                       <span className="absolute top-3 left-3 rounded-full bg-white/85 px-3 py-1 text-caption font-medium text-on-surface backdrop-blur-sm">
